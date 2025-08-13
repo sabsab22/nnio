@@ -1,0 +1,60 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* متغيرات مخصصة للواجهة العربية */
+:root {
+  --text-direction: ltr;
+  --text-align: left;
+  --list-padding: 0 0 0 1rem;
+  --placeholder-align: left;
+}
+
+[dir="rtl"] {
+  --text-direction: rtl;
+  --text-align: right;
+  --list-padding: 0 1rem 0 0;
+  --placeholder-align: right;
+}
+
+/* تحسينات للواجهة العربية */
+[dir="rtl"] .text-left {
+  text-align: var(--text-align);
+}
+
+[dir="rtl"] .text-right {
+  text-align: left;
+}
+
+[dir="rtl"] ul,
+[dir="rtl"] ol {
+  padding: var(--list-padding);
+}
+
+[dir="rtl"] table {
+  direction: var(--text-direction);
+}
+
+[dir="rtl"] input::placeholder {
+  text-align: var(--placeholder-align);
+}
+
+/* تأثيرات الحركة */
+.transition-all {
+  transition-property: all;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* تخصيصات إضافية للواجهة العربية */
+body {
+  font-family: theme('fontFamily.arabic');
+}
+
+/* تحسينات للهواتف */
+@media (max-width: 640px) {
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
